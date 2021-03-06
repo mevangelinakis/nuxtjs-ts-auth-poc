@@ -1,5 +1,7 @@
 # nuxtjs-ts-auth-poc
 
+A [`nuxt/auth`](https://auth.nuxtjs.org/) PoC app in NuxtJs with Typescript 
+
 ## Build Setup
 
 ```bash
