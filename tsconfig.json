@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "sourceMap": true,
+    "inlineSources": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "target": "ES2018",
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -10,10 +15,7 @@
     ],
     "esModuleInterop": true,
     "allowJs": true,
-    "sourceMap": true,
-    "strict": true,
     "noEmit": true,
-    "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
       "~/*": [
@@ -26,7 +28,8 @@
     "types": [
       "@nuxt/types",
       "@nuxtjs/axios",
-      "@types/node"
+      "@types/node",
+      "@types/nuxtjs__auth"
     ]
   },
   "exclude": [

@@ -1,4 +1,6 @@
-export default {
+import { NuxtConfig } from '@nuxt/types';
+
+const config: NuxtConfig = {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxtjs-ts-auth-poc',
@@ -34,6 +36,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -41,4 +44,19 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+
+  typescript: {
+    typeCheck: {
+      eslint: {
+        files: './**/*.{ts,js,vue}',
+      },
+    },
+  },
+
+  transition: {
+    name: 'slide-fade',
+    mode: 'out-in',
+  },
+};
+
+export default config;
