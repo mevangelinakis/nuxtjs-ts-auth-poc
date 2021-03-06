@@ -1,6 +1,6 @@
 # nuxtjs-ts-auth-poc
 
-A [`nuxt/auth`](https://auth.nuxtjs.org/) PoC app in NuxtJs with Typescript 
+A [`nuxt/auth`v4](https://github.com/nuxt-community/auth-module/tree/master/docs) PoC app in NuxtJs with Typescript 
 
 ## Build Setup
 
