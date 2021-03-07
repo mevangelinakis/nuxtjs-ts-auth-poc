@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Home Page</h1>
+    <h1>Admin Access Page</h1>
   </div>
 </template>
 
@@ -8,5 +8,5 @@
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component
-export default class Index extends Vue {}
+export default class Admin extends Vue {}
 </script>
