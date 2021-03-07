@@ -51,7 +51,9 @@ const config: NuxtConfig = {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'https://reqres.in/api',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -71,10 +73,27 @@ const config: NuxtConfig = {
     mode: 'out-in',
   },
 
+  loading: {
+    color: '#e9c46a',
+  },
+
   auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: false,
+      home: '/',
+    },
     strategies: {
       local: {
-        endpoints: {},
+        endpoints: {
+          login: { url: '/login', method: 'post', propertyName: 'token' },
+          logout: {
+            url: '/users/logout',
+            method: 'delete',
+          },
+          user: { url: '/users/:id', method: 'get', propertyName: 'user' },
+        },
       },
     },
   },

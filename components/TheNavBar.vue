@@ -48,7 +48,6 @@
       text-decoration: none;
 
       &:hover,
-      &:focus,
       &.nuxt-link-exact-active {
         color: #e9c46a;
         outline: none;

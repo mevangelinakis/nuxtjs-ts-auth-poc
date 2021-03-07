@@ -61,8 +61,8 @@ import { Vue, Component } from 'vue-property-decorator';
 @Component
 export default class Login extends Vue {
   form = {
-    email: '',
-    password: '',
+    email: 'johndoe@email.com',
+    password: '12345678',
   };
 
   isLoading = false;
@@ -70,9 +70,14 @@ export default class Login extends Vue {
   handleLogin() {
     this.isLoading = true;
 
-    this.$auth.loginWith('local', {
-      data: this.form,
-    });
+    try {
+      this.$auth.loginWith('local', {
+        data: this.form,
+      });
+    } catch (e) {
+    } finally {
+      this.isLoading = false;
+    }
   }
 }
 </script>

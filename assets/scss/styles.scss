@@ -52,8 +52,7 @@ h1 {
   font-size: 1rem;
   padding: 0.625rem 1.125rem;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: #073b4c;
     cursor: pointer;
     outline: none;
@@ -63,8 +62,7 @@ h1 {
     background-color: transparent;
     color: #118ab2;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: transparent;
       color: #073b4c;
     }
