@@ -1,18 +1,20 @@
 <template>
   <div>
     <h1>Register</h1>
-    <ValidationObserver v-slot="{ handleSubmit }">
+    <ValidationObserver v-slot="{ handleSubmit }" tag="div">
       <form
         novalidate
         class="form"
         @submit.prevent="handleSubmit(handleRegister)"
       >
         <ValidationProvider
-          v-slot="{ errors, failedRules }"
+          v-slot="{ failed, failedRules }"
           name="firstName"
           rules="required"
+          tag="div"
+          class="form__block"
         >
-          <div :class="['form__group', { invalid: errors.length }]">
+          <div :class="['form__group', { invalid: failed }]">
             <label class="form__label" for="firstName">First Name</label>
             <input
               id="firstName"
@@ -27,11 +29,13 @@
           </div>
         </ValidationProvider>
         <ValidationProvider
-          v-slot="{ errors, failedRules }"
+          v-slot="{ failed, failedRules }"
           name="lastName"
           rules="required"
+          tag="div"
+          class="form__block"
         >
-          <div :class="['form__group', { invalid: errors.length }]">
+          <div :class="['form__group', { invalid: failed }]">
             <label class="form__label" for="lastName">Last Name</label>
             <input
               id="lastName"
@@ -46,11 +50,13 @@
           </div>
         </ValidationProvider>
         <ValidationProvider
-          v-slot="{ errors, failedRules }"
+          v-slot="{ failed, failedRules }"
           name="email"
           rules="required|email"
+          tag="div"
+          class="form__block"
         >
-          <div :class="['form__group', { invalid: errors.length }]">
+          <div :class="['form__group', { invalid: failed }]">
             <label class="form__label" for="email">E-mail</label>
             <input
               id="email"
@@ -68,11 +74,13 @@
           </div>
         </ValidationProvider>
         <ValidationProvider
-          v-slot="{ errors, failedRules }"
+          v-slot="{ failed, failedRules }"
           name="password"
           rules="required|min:8"
+          tag="div"
+          class="form__block"
         >
-          <div :class="['form__group', { invalid: errors.length }]">
+          <div :class="['form__group', { invalid: failed }]">
             <label class="form__label" for="password">Password</label>
             <input
               id="password"
@@ -90,11 +98,13 @@
           </div>
         </ValidationProvider>
         <ValidationProvider
-          v-slot="{ errors, failedRules }"
+          v-slot="{ failed, failedRules }"
           name="confirmPassword"
           rules="required|confirmed:password"
+          tag="div"
+          class="form__block"
         >
-          <div :class="['form__group', { invalid: errors.length }]">
+          <div :class="['form__group', { invalid: failed }]">
             <label class="form__label" for="confirmPassword"
               >Confirm Password</label
             >
