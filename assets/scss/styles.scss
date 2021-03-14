@@ -67,6 +67,13 @@ h1 {
       color: #073b4c;
     }
   }
+
+  &:disabled,
+  &[disabled] {
+    background-color: #93becc;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
 
 .form {
@@ -106,6 +113,10 @@ h1 {
     &:focus {
       border-color: #118ab2;
       outline: none;
+    }
+
+    &--select {
+      background-color: #fff;
     }
   }
 

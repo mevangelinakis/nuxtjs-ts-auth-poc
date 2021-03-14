@@ -29,7 +29,8 @@
       "@nuxt/types",
       "@nuxtjs/axios",
       "@types/node",
-      "@types/nuxtjs__auth"
+      "@types/nuxtjs__auth",
+      "@types/crypto-js",
     ]
   },
   "exclude": [

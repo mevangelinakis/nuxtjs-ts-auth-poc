@@ -49,6 +49,19 @@
             </div>
           </div>
         </ValidationProvider>
+        <div class="form__block">
+          <div class="form__group">
+            <label class="form__label" for="lastName">User Type</label>
+            <select
+              id="type"
+              v-model="form.type"
+              class="form__input form__input--select"
+            >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+        </div>
         <ValidationProvider
           v-slot="{ failed, failedRules }"
           name="email"
@@ -133,10 +146,11 @@
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component
-export default class Login extends Vue {
+export default class Register extends Vue {
   form = {
     firstName: '',
     lastName: '',
+    type: 'user',
     email: '',
     password: '',
     confirmPassword: '',
@@ -144,8 +158,41 @@ export default class Login extends Vue {
 
   isLoading = false;
 
-  handleRegister() {
-    this.isLoading = true;
+  async handleRegister() {
+    try {
+      this.isLoading = true;
+
+      const data = {
+        firstName: this.form.firstName,
+        lastName: this.form.lastName,
+        email: this.form.email,
+        password: this.form.password,
+      };
+
+      await this.$axios.$post('/api/users/register', data);
+      await this.$auth.loginWith('local', {
+        data: {
+          email: this.form.email,
+          password: this.form.password,
+        },
+      });
+
+      this.$notify({
+        type: 'success',
+        title: 'Success',
+        text: `User registration completed!`,
+      });
+    } catch (e) {
+      const { data } = e.response;
+
+      this.$notify({
+        type: 'error',
+        title: 'Failed',
+        text: data.message,
+      });
+    } finally {
+      this.isLoading = false;
+    }
   }
 }
 </script>

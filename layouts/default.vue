@@ -5,6 +5,9 @@
       <div class="container">
         <Nuxt />
       </div>
+      <ClientOnly>
+        <notifications position="bottom right" />
+      </ClientOnly>
     </main>
   </div>
 </template>

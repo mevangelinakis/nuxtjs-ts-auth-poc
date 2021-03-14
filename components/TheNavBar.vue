@@ -10,7 +10,9 @@
         </div>
         <div v-if="$auth.loggedIn" class="nav__block">
           <span class="user">{{ $auth.user.email }}</span>
-          <button class="btn btn--link nav__link">Logout</button>
+          <button class="btn btn--link nav__link" @click="$auth.logout()">
+            Logout
+          </button>
         </div>
         <div v-else class="nav__block">
           <NuxtLink to="/login" class="nav__link">Login</NuxtLink>

@@ -61,20 +61,32 @@ import { Vue, Component } from 'vue-property-decorator';
 @Component
 export default class Login extends Vue {
   form = {
-    email: 'johndoe@email.com',
-    password: '12345678',
+    email: '',
+    password: '',
   };
 
   isLoading = false;
 
-  handleLogin() {
-    this.isLoading = true;
-
+  async handleLogin() {
     try {
-      this.$auth.loginWith('local', {
+      this.isLoading = true;
+      await this.$auth.loginWith('local', {
         data: this.form,
       });
+
+      this.$notify({
+        type: 'success',
+        title: 'Success',
+        text: `Welcome back ${this.$auth.user.firstName} ${this.$auth.user.lastName}!`,
+      });
     } catch (e) {
+      const { data } = e.response;
+
+      this.$notify({
+        type: 'error',
+        title: 'Failed',
+        text: data.message,
+      });
     } finally {
       this.isLoading = false;
     }

@@ -30,7 +30,14 @@ const config: NuxtConfig = {
   css: ['~/assets/scss/styles.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/vee-validate'],
+  plugins: [
+    '~plugins/vee-validate',
+    '~plugins/miragejs',
+    {
+      src: '~plugins/vue-notification',
+      ssr: false,
+    },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -52,7 +59,7 @@ const config: NuxtConfig = {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://reqres.in/api',
+    baseURL: 'http://localhost:3000',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -87,12 +94,13 @@ const config: NuxtConfig = {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/login', method: 'post', propertyName: 'token' },
-          logout: {
-            url: '/users/logout',
-            method: 'delete',
+          login: {
+            url: '/api/users/login',
+            method: 'post',
+            propertyName: 'token',
           },
-          user: { url: '/users/:id', method: 'get', propertyName: 'user' },
+          logout: { url: '/api/users/logout', method: 'post' },
+          user: false,
         },
       },
     },
