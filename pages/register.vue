@@ -136,9 +136,22 @@
             </div>
           </div>
         </ValidationProvider>
-        <button type="submit" class="btn" :disabled="isLoading">Submit</button>
+        <button type="submit" class="btn" :disabled="isLoading">
+          Register
+        </button>
       </form>
     </ValidationObserver>
+    <div class="social">
+      <button
+        type="button"
+        class="btn btn--google"
+        @click="
+          $auth.loginWith('google', { params: { prompt: 'select_account' } })
+        "
+      >
+        Google
+      </button>
+    </div>
   </div>
 </template>
 

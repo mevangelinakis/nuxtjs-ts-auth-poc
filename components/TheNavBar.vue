@@ -46,21 +46,26 @@
       display: inline-block;
       font-weight: 700;
       font-size: 1rem;
-      padding: 0 0.625rem;
+      margin: 0 0.625rem;
       text-decoration: none;
 
       &:hover,
       &.nuxt-link-exact-active {
         color: #e9c46a;
+      }
+
+      &:hover,
+      &:focus,
+      &.nuxt-link-exact-active {
         outline: none;
       }
 
       &:first-child {
-        padding-left: 0;
+        margin-left: 0;
       }
 
       &:last-child {
-        padding-right: 0;
+        margin-right: 0;
       }
     }
   }

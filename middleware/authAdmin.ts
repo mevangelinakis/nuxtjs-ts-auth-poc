@@ -4,7 +4,7 @@ const authAdmin: Middleware = ({ $auth, redirect }) => {
   const user = $auth.$state.user;
 
   if (!user || user.type !== 'admin') {
-    redirect('/');
+    redirect('/login');
   }
 };
 

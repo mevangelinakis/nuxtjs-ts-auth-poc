@@ -103,6 +103,9 @@ const config: NuxtConfig = {
           user: { url: '/api/users/', method: 'get', propertyName: 'user' },
         },
       },
+      google: {
+        client_id: process.env.GOOGLE_CLIENT_ID,
+      },
     },
   },
 };

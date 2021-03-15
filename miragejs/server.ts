@@ -120,8 +120,25 @@ export function makeServer({ environment = 'development' } = {}) {
             });
           }
 
-          return new Response(201, undefined, {
+          return new Response(200, undefined, {
             user: user.attrs,
+          });
+        }
+      );
+
+      this.get(
+        '/users/all',
+        (schema: any): Response => {
+          const users = schema.users.all();
+
+          if (!users) {
+            return new Response(401, undefined, {
+              message: 'Could not find users!',
+            });
+          }
+
+          return new Response(200, undefined, {
+            users,
           });
         }
       );
