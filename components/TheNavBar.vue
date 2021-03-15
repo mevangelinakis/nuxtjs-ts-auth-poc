@@ -66,6 +66,7 @@
   }
 
   .user {
+    color: #fff;
     padding: 0 0.625rem;
   }
 }

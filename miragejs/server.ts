@@ -1,7 +1,6 @@
 import {
   createServer,
   JSONAPISerializer,
-  Serializer,
   Model,
   Request,
   Response,
@@ -43,9 +42,6 @@ export function makeServer({ environment = 'development' } = {}) {
 
     serializers: {
       application: JSONAPISerializer,
-      user: Serializer.extend({
-        attrs: ['id', 'firstName', 'lastName', 'email', 'type'],
-      }),
     },
 
     models: {
@@ -107,6 +103,25 @@ export function makeServer({ environment = 'development' } = {}) {
 
           return new Response(201, undefined, {
             message: 'User logged out successfully!',
+          });
+        }
+      );
+
+      this.get(
+        '/users',
+        (schema: any, request: Request): Response => {
+          const token = request.requestHeaders.Authorization;
+          const strippedToken = token.replace('Bearer ', '');
+          const user = schema.users.findBy({ token: strippedToken });
+
+          if (!user) {
+            return new Response(401, undefined, {
+              message: 'Could not find user!',
+            });
+          }
+
+          return new Response(201, undefined, {
+            user: user.attrs,
           });
         }
       );

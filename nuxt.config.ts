@@ -100,7 +100,7 @@ const config: NuxtConfig = {
             propertyName: 'token',
           },
           logout: { url: '/api/users/logout', method: 'post' },
-          user: false,
+          user: { url: '/api/users/', method: 'get', propertyName: 'user' },
         },
       },
     },
