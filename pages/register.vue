@@ -167,6 +167,7 @@ export default class Register extends Vue {
         lastName: this.form.lastName,
         email: this.form.email,
         password: this.form.password,
+        type: this.form.type,
       };
 
       await this.$axios.$post('/api/users/register', data);

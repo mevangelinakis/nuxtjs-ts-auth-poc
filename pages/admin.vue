@@ -8,7 +8,7 @@
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component({
-  middleware: 'auth',
+  middleware: 'authAdmin',
 })
 export default class Admin extends Vue {}
 </script>
