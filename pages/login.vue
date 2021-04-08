@@ -53,13 +53,7 @@
       </form>
     </ValidationObserver>
     <div class="social">
-      <button
-        type="button"
-        class="btn btn--google"
-        @click="
-          $auth.loginWith('google', { params: { prompt: 'select_account' } })
-        "
-      >
+      <button type="button" class="btn btn--google" @click="handleGoogleLogin">
         Google
       </button>
       <button type="button" class="btn btn--facebook" @click="handleFBLogin">
@@ -104,6 +98,12 @@ export default class Login extends Vue {
     } finally {
       this.isLoading = false;
     }
+  }
+
+  async handleGoogleLogin() {
+    await this.$auth.loginWith('google', {
+      params: { prompt: 'select_account' },
+    });
   }
 
   async handleFBLogin() {
