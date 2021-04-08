@@ -87,6 +87,14 @@ table {
     }
   }
 
+  &--facebook {
+    background-color: #3b5998;
+
+    &:hover {
+      background-color: #2f4779;
+    }
+  }
+
   &:disabled,
   &[disabled] {
     background-color: #93becc;
@@ -163,6 +171,7 @@ table {
   padding-top: 1rem;
 
   .btn {
+    margin-bottom: 1rem;
     width: 100%;
   }
 }

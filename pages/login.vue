@@ -62,6 +62,9 @@
       >
         Google
       </button>
+      <button type="button" class="btn btn--facebook" @click="handleFBLogin">
+        Facebook
+      </button>
     </div>
   </div>
 </template>
@@ -101,6 +104,10 @@ export default class Login extends Vue {
     } finally {
       this.isLoading = false;
     }
+  }
+
+  async handleFBLogin() {
+    await this.$auth.loginWith('facebook');
   }
 }
 </script>

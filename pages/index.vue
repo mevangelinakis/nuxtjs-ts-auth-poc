@@ -31,8 +31,6 @@ import { User } from '@/types';
     try {
       const response = await $axios.$get('/api/users/all');
 
-      // eslint-disable-next-line no-console
-      console.log(response);
       const users = response.users.models;
       return {
         users,

@@ -106,6 +106,13 @@ const config: NuxtConfig = {
       google: {
         client_id: process.env.GOOGLE_CLIENT_ID,
       },
+      facebook: {
+        client_id: process.env.FACEBOOK_LOGIN_KEY,
+        authorization_endpoint: 'https://facebook.com/v10.0/dialog/oauth',
+        userinfo_endpoint:
+          'https://graph.facebook.com/v10.0/me?fields=name,email',
+        scope: ['name', 'email'],
+      },
     },
   },
 };
